@@ -1,0 +1,36 @@
+<script>
+	function Store(location, operation, trafficLow, trafficHigh, entering, sold)
+	{
+		this.location = location;
+		this.trafficLow = trafficLow;
+		this.trafficHigh = trafficHigh;
+		this.operation = operation;
+		this.randomTraffic = function()
+		{
+			var Low = this.trafficLow,
+					High = this.trafficHigh;
+			return Math.floor(Math.random((High * Low)	) + Low) * operation;
+		}
+		this.entering = entering;
+		this.sold = sold;
+		this.totalSold = function()
+		{
+			return totalSold = Math.ceil(((operation * this.randomTraffic())* entering / sold))
+		};
+	};
+	var downtown = new Store("Downtown", 11, 80, 220 ,.10 , 4);
+	var capitolHill = new Store("capitol Hill", 11, 5, 45, .45, 2);
+	var southLakeUnion = new Store("South Lake Union",11 , 180 ,250 ,.05 , 6);
+	var wedgewood = new Store("Wedgewood", 11, 20, 60, .20, 1.5);
+	var ballard = new Store("Ballard", 11, 25, 175, .33, 1);
+
+	console.log("Downtown" + " " +  downtown.totalSold());
+	console.log("Capitol Hill" + " " +  capitolHill.totalSold());
+	console.log("Southlake Union" + " " +  southLakeUnion.totalSold());
+	console.log("Wedgewood" +  " " +  wedgewood.totalSold());
+	console.log("Ballard" + " " + ballard.totalSold());
+
+</script>
+
+ //pulled randomtraffic code from http://stackoverflow.com/questions/4959975/generate-random-value-between-two-numbers-in-javascript
+
